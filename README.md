@@ -1,49 +1,42 @@
-# Ripple Basic Template
+# ripple-zustand
 
-A minimal Ripple application template with TypeScript and Vite.
+A small, fast, and scalable bearbones state management for Ripple based on [Zustand](https://docs.pmnd.rs/).
 
-## Getting Started
+## Installation
 
-1. Install dependencies:
+```bash
+npm install zustand ripple-zustand
+```
 
-    ```bash
-    npm install # or pnpm or yarn
-    ```
+## Usage
 
-2. Start the development server:
+### First create a store
 
-    ```bash
-    npm run dev
-    ```
+Your store is a function! You can put anything in it: primitives, objects, functions. The `set` function merges state.
 
-3. Build for production:
-    ```bash
-    npm run build
-    ```
+```ts
+import { create } from 'ripple-zustand'
 
-## Code Formatting
+const useBear = create((set) => ({
+  bears: 0,
+  increasePopulation: () => set((state) => ({ bears: state.bears + 1 })),
+  removeAllBears: () => set({ bears: 0 }),
+  updateBears: (newBears) => set({ bears: newBears }),
+}))
+```
 
-This template includes Prettier with the Ripple plugin for consistent code formatting.
+### Then bind your components, and that's it!
 
-### Available Commands
+Use the function anywhere, no providers are needed.
 
-- `npm run format` - Format all files
-- `npm run format:check` - Check if files are formatted correctly
+```tsx
+component BearCounter() {
+    const bears = useBear((state) => state.bears)
+    <h1>{`${@bears} bears around here...`}</h1>
+}
 
-### Configuration
-
-Prettier is configured in `.prettierrc` with the following settings:
-
-- Uses tabs for indentation
-- Single quotes for strings
-- 100 character line width
-- Includes the `prettier-plugin-ripple` for `.ripple` file formatting
-
-### VS Code Integration
-
-For the best development experience, install the [Prettier VS Code extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) and the [Ripple VS Code extension](https://marketplace.visualstudio.com/items?itemName=ripplejs.ripple-vscode-plugin).
-
-## Learn More
-
-- [Ripple Documentation](https://github.com/trueadm/ripple)
-- [Vite Documentation](https://vitejs.dev/)
+component Controls() {
+    const increasePopulation = useBear((state) => state.increasePopulation)
+    <button onClick={increasePopulation}>{'one up'}</button>
+}
+```
