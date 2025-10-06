@@ -1,4 +1,1 @@
-export {
-  create,
-  useStore
-} from './useStore.ripple'
+export { create, useStore } from './useStore.ripple';

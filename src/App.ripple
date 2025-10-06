@@ -1,35 +1,31 @@
-import { effect, track } from 'ripple';
+import { effect } from 'ripple';
 import { useStore, useTodoStore } from './store';
 
+
 component TodoItem(props) {
-  const fetchTodo = useTodoStore(state => state.fetch)
-  const todo = useTodoStore(state => state.todo)
-  await fetchTodo(props.id)
+	const fetchTodo = useTodoStore((state) => state.fetch);
+  await fetchTodo(1)
+	const todo = useTodoStore((state) => state.todo);
 
-  console.log(@todo)
 
-  <li>{@todo.todo}</li>
+	<li>{@todo?.todo ?? 'loading'}</li>
 }
 
 export component App() {
-	<div class='container'>
+	<div class="container">
 		<h1>{'Welcome to Ripple!'}</h1>
-		<div class='counter'>
-      const bears = useStore(state => state.bears)
-      const increaseBears = useStore(state => state.increase)
-      const decreaseBears = useStore(state => state.decrease)
-      const { bears: bears2 } = useStore(state => ({ bears: state.bears }))
+		<div class="counter">
+			const bears = useStore((state) => state.bears);
+			const increaseBears = useStore((state) => state.increase);
+			const decreaseBears = useStore((state) => state.decrease);
+			const store = useStore();
 
-      effect(() => {
-        console.log(@bears)
-      })
-
-      effect(() => {
-        console.log('@bears2', @bears2)
-      })
+			effect(() => {
+				console.log(@bears);
+			});
 
 			<button onClick={() => decreaseBears()}>{'-'}</button>
-			<span class='count'>{@bears}</span>
+			<span class="count">{@bears}</span>
 			<button onClick={() => increaseBears()}>{'+'}</button>
 		</div>
 		<div>
@@ -40,49 +36,48 @@ export component App() {
 				{' to get started.'}
 			</p>
 		</div>
-
-    try {
-      <TodoItem id={1} />
-    } pending {
-      <p>{'Loading...'}</p>
-    }
+		try {
+			<TodoItem id={1} />
+		} pending {
+			<p>{'Loading...'}</p>
+		}
 	</div>
 
   <style>
-    .container {
-      text-align: center;
-      font-family: "Arial", sans-serif;
-    }
+  .container {
+    text-align: center;
+    font-family: "Arial", sans-serif;
+  }
 
-    p {
-      margin: 12px 0;
-      font-family: "Arial", sans-serif;
-    }
+  p {
+    margin: 12px 0;
+    font-family: "Arial", sans-serif;
+  }
 
-    code {
-      background: #f4f4f4;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-family: "Courier New", monospace;
-      color: #333;
-    }
+  code {
+    background: #f4f4f4;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: "Courier New", monospace;
+    color: #333;
+  }
 
-    button {
-      font-size: 1.5em;
-      padding: 6px 12px;
-      margin: 0 6px;
-      cursor: pointer;
-      border: none;
-      font-family: "Courier New", monospace;
-    }
+  button {
+    font-size: 1.5em;
+    padding: 6px 12px;
+    margin: 0 6px;
+    cursor: pointer;
+    border: none;
+    font-family: "Courier New", monospace;
+  }
 
-    button:hover {
-      background-color: #e0e0e0;
-    }
+  button:hover {
+    background-color: #e0e0e0;
+  }
 
-    .count {
-      margin: 0 12px;
-      font-size: 1.5em;
-    }
+  .count {
+    margin: 0 12px;
+    font-size: 1.5em;
+  }
   </style>
 }

@@ -1,45 +1,40 @@
-import type { StoreApi, StateCreator } from 'zustand/vanilla'
-import { createStore } from 'zustand/vanilla'
-import { effect, track, TrackedObject } from 'ripple'
+import type { StateCreator } from 'zustand/vanilla';
+import { createStore } from 'zustand/vanilla';
+import { effect, track } from 'ripple';
+import type { Create, ReadonlyStoreApi } from '../types'
 
-type ReadonlyStoreApi<T> = Pick<
-  StoreApi<T>,
-  'getState' | 'getInitialState' | 'subscribe'
->
+const identity = (arg: any) => arg;
 
-const identity = (arg: any) => arg
+export function useStore(api: ReadonlyStoreApi<any>, selector = identity) {
+	const initialValue = selector(api.getState());
 
-export function useStore(
-  api: ReadonlyStoreApi<any>,
-  selector = identity,
-) {
-  const initialValue = selector(api.getState())
-
-  if (typeof initialValue === 'function')
+	if (typeof initialValue === 'function') {
     return initialValue
+  };
 
-  let slice = track(initialValue)
+	let slice = track(initialValue);
 
-  effect(() => {
-    const unsub = api.subscribe((state) => {
-      console.log('nextvalue', selector(state))
-      @slice = selector(state)
-    })
+	effect(() => {
+		const unsub = api.subscribe((state) => {
+			console.log('nextvalue', selector(state));
+			@slice = selector(state);
+		});
 
-    return () => unsub()
-  })
+		return () => unsub();
+	});
 
-  return slice
+	return slice;
 }
 
-const createImpl = (createState: StateCreator<any, [], []>) => {
-  const api = createStore(createState)
+const createImpl = <T>(createState: StateCreator<T, [], []>) => {
+	const api = createStore(createState);
 
-  const useBoundStore: any = (selector?: any) => useStore(api, selector)
+	const useBoundStore: any = (selector: any) => useStore(api, selector);
 
-  Object.assign(useBoundStore, api)
+	Object.assign(useBoundStore, api);
 
-  return useBoundStore
-}
+	return useBoundStore;
+};
 
-export const create = ((createState: StateCreator<any, [], []> | undefined) => createState ? createImpl(createState) : createImpl)
+export const create = (<T>(createState: StateCreator<T, [], []> | undefined) =>
+  createState ? createImpl(createState) : createImpl) as Create

@@ -15,14 +15,14 @@ npm install zustand ripple-zustand
 Your store is a function! You can put anything in it: primitives, objects, functions. The `set` function merges state.
 
 ```ts
-import { create } from 'ripple-zustand'
+import { create } from 'ripple-zustand';
 
 const useBear = create((set) => ({
-  bears: 0,
-  increasePopulation: () => set((state) => ({ bears: state.bears + 1 })),
-  removeAllBears: () => set({ bears: 0 }),
-  updateBears: (newBears) => set({ bears: newBears }),
-}))
+	bears: 0,
+	increasePopulation: () => set((state) => ({ bears: state.bears + 1 })),
+	removeAllBears: () => set({ bears: 0 }),
+	updateBears: (newBears) => set({ bears: newBears }),
+}));
 ```
 
 ### Then bind your components, and that's it!
@@ -46,17 +46,19 @@ component Controls() {
 ### Fetching everything
 
 ```ts
-const state = useStore()
+const state = useStore();
 ```
 
 ### Selecting multiple state slices
 
 ```ts
-const nuts = useStore(state => state.nuts)
-const honey = useStore(state => state.honey)
+const nuts = useStore((state) => state.nuts);
+const honey = useStore((state) => state.honey);
 ```
 
 ### Async actions
+
+Just call `set` when you're ready, zustand doesn't care if your actions are async or not.
 
 ```ts
 const useTodoStore = create((set) => ({
@@ -76,9 +78,22 @@ export component App() {
 }
 
 component TodoItem(props) {
-  const todoStore = useTodoStore()
-  await todoStore.fetch(props.id)
+  const fetchTodo = useTodoStore(state => state.fetch)
+  await fetchTodo(props.id)
+  const todo = useTodoStore(state => state.todo)
 
-  <li>{todoStore.@todo.todo}</li>
+  <li>{@todo.todo}</li>
 }
+```
+
+### Read from state in actions
+
+`set` allows fn-updates `set(state => result)`, but you still have access to state outside of it through `get`.
+
+```ts
+const useSoundStore = create((set, get) => ({
+  sound: 'grunt',
+  action: () => {
+    const sound = get().sound
+    ...
 ```
