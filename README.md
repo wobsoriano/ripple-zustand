@@ -40,3 +40,45 @@ component Controls() {
     <button onClick={increasePopulation}>{'one up'}</button>
 }
 ```
+
+## Recipes
+
+### Fetching everything
+
+```ts
+const state = useStore()
+```
+
+### Selecting multiple state slices
+
+```ts
+const nuts = useStore(state => state.nuts)
+const honey = useStore(state => state.honey)
+```
+
+### Async actions
+
+```ts
+const useTodoStore = create((set) => ({
+  todo: {},
+  fetch: async (todoId) => {
+    const response = await fetch(`https://dummyjson.com/todos/${todoId}`)
+    set({ todo: await response.json() })
+  },
+}))
+
+export component App() {
+	try {
+		<TodoItem />
+	} pending {
+		<p>{'Loading...'}</p>
+	}
+}
+
+component TodoItem(props) {
+  const todoStore = useTodoStore()
+  await todoStore.fetch(props.id)
+
+  <li>{todoStore.@todo.todo}</li>
+}
+```

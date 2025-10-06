@@ -1,6 +1,6 @@
 import type { StoreApi, StateCreator } from 'zustand/vanilla'
 import { createStore } from 'zustand/vanilla'
-import { effect, track } from 'ripple'
+import { effect, track, TrackedObject } from 'ripple'
 
 type ReadonlyStoreApi<T> = Pick<
   StoreApi<T>,
@@ -22,6 +22,7 @@ export function useStore(
 
   effect(() => {
     const unsub = api.subscribe((state) => {
+      console.log('nextvalue', selector(state))
       @slice = selector(state)
     })
 

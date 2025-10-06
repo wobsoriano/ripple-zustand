@@ -9,26 +9,26 @@ importers:
   .:
     devDependencies:
       bumpp:
-        specifier: ^10.2.3
-        version: 10.2.3
+        specifier: ^10.3.1
+        version: 10.3.1
       prettier:
         specifier: ^3.6.2
         version: 3.6.2
       prettier-plugin-ripple:
-        specifier: ^0.2.100
-        version: 0.2.100(prettier@3.6.2)
+        specifier: ^0.2.108
+        version: 0.2.108(prettier@3.6.2)
       ripple:
-        specifier: ^0.2.100
-        version: 0.2.100
+        specifier: ^0.2.108
+        version: 0.2.108
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
       vite:
-        specifier: ^7.1.7
-        version: 7.1.7(jiti@2.6.1)(yaml@2.8.1)
+        specifier: ^7.1.9
+        version: 7.1.9(jiti@2.6.1)(yaml@2.8.1)
       vite-plugin-ripple:
-        specifier: ^0.2.100
-        version: 0.2.100
+        specifier: ^0.2.108
+        version: 0.2.108
       zustand:
         specifier: ^5.0.8
         version: 5.0.8
@@ -304,13 +304,13 @@ packages:
     cpu: [x64]
     os: [win32]
 
+  '@sveltejs/acorn-typescript@1.0.6':
+    resolution: {integrity: sha512-4awhxtMh4cx9blePWl10HRHj8Iivtqj+2QdDCSMDzxG+XKa9+VCNupQuCuvzEhYPzZSrX+0gC+0lHA/0fFKKQQ==}
+    peerDependencies:
+      acorn: ^8.9.0
+
   '@types/estree@1.0.8':
     resolution: {integrity: sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w==}
-
-  acorn-typescript@1.4.13:
-    resolution: {integrity: sha512-xsc9Xv0xlVfwp2o7sQ+GCQ1PgbkdcpWdTzrwXxO3xDMTAywVS3oXVOcOHuRjAPkS4P9b+yc/qNF15460v+jp4Q==}
-    peerDependencies:
-      acorn: '>=8.9.0'
 
   acorn@8.15.0:
     resolution: {integrity: sha512-NZyJarBfL7nWwIq+FDL6Zp/yHEhePMNnnJ0y3qfieCrmNvYct8uvtiV41UvlSe6apAfk0fY1FbWx+NwfmpvtTg==}
@@ -324,8 +324,8 @@ packages:
   args-tokenizer@0.3.0:
     resolution: {integrity: sha512-xXAd7G2Mll5W8uo37GETpQ2VrE84M181Z7ugHFGQnJZ50M2mbOv0osSZ9VsSgPfJQ+LVG0prSi0th+ELMsno7Q==}
 
-  bumpp@10.2.3:
-    resolution: {integrity: sha512-nsFBZACxuBVu6yzDSaZZaWpX5hTQ+++9WtYkmO+0Bd3cpSq0Mzvqw5V83n+fOyRj3dYuZRFCQf5Z9NNfZj+Rnw==}
+  bumpp@10.3.1:
+    resolution: {integrity: sha512-cOKPRFCWvHcYPJQAHN6V7Jp/wAfnyqQRXQ+2fgWIL6Gao20rpu7xQ1cGGo1APOfmbQmmHngEPg9Fy7nJ3giRkQ==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -377,6 +377,9 @@ packages:
   escalade@3.2.0:
     resolution: {integrity: sha512-WUj2qlxaQtO4g6Pq5c29GTcWGDyd8itL8zTlipgECz3JesAiiOKotd8JU6otB3PACgG6xkJUyVhboMS+bje/jA==}
     engines: {node: '>=6'}
+
+  esm-env@1.2.2:
+    resolution: {integrity: sha512-Epxrv+Nr/CaL4ZcFGPJIYLWFom+YeV1DqMLHJoEd9SYRxNbaFruBwfEX/kkHUJf55j2+TUbmDcmuilbP1TmXHA==}
 
   esrap@2.1.0:
     resolution: {integrity: sha512-yzmPNpl7TBbMRC5Lj2JlJZNPml0tzqoqP5B1JXycNUwtqma9AKCO0M2wHrdgsHcy1WRW7S9rJknAMtByg3usgA==}
@@ -457,8 +460,8 @@ packages:
     resolution: {integrity: sha512-3Ybi1tAuwAP9s0r1UQ2J4n5Y0G05bJkpUIO0/bI9MhwmD70S5aTWbXGBwxHrelT+XM1k6dM0pk+SwNkpTRN7Pg==}
     engines: {node: ^10 || ^12 || >=14}
 
-  prettier-plugin-ripple@0.2.100:
-    resolution: {integrity: sha512-YIKDho0SbqQ/ua0N8RQzF6rxBhCz5xdYinrZrCcfvI68Cs8A9cQZpQST7osaCQNX0uEEeLB/WvLr47GpXbrN+w==}
+  prettier-plugin-ripple@0.2.108:
+    resolution: {integrity: sha512-cXRL/GdlosVea+x+nWILo4anI14JHC0JFC5mHjlvyp0KVSUNuN3hW/8p/f7N3x9lF30FMJ6t4BML1ZXo7wXRaQ==}
     peerDependencies:
       prettier: '>=2.0.0'
 
@@ -474,8 +477,8 @@ packages:
     resolution: {integrity: sha512-GDhwkLfywWL2s6vEjyhri+eXmfH6j1L7JE27WhqLeYzoh/A3DBaYGEj2H/HFZCn/kMfim73FXxEJTw06WtxQwg==}
     engines: {node: '>= 14.18.0'}
 
-  ripple@0.2.100:
-    resolution: {integrity: sha512-tP3DkaRs5HGWGNxlocqslepAnv0AcH86kFxu17fmW7teLm3lAQOUA5Kk1+RpsZPBVCCCuIsWOv0Tg1h3sy24Cg==}
+  ripple@0.2.108:
+    resolution: {integrity: sha512-M0DoMDcz4LlqXU3L4Ue1CIVc9F1Ij6CDs4AO+7Vg9M+r+dWuxE+89FfmiX8NiOocIJCUc4YapiDILf6v+fCV9Q==}
 
   rollup@4.52.3:
     resolution: {integrity: sha512-RIDh866U8agLgiIcdpB+COKnlCreHJLfIhWC3LVflku5YHfpnsIKigRZeFfMfCc4dVcqNVfQQ5gO/afOck064A==}
@@ -503,11 +506,11 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  vite-plugin-ripple@0.2.100:
-    resolution: {integrity: sha512-eK4X6+BfSzQl/pe8EV98ZDDMPsdtsPZFilEVAHk7JJqEgLowGodT5bnPmdiWjBxeYqMlanoR09V9pdMc2N390A==}
+  vite-plugin-ripple@0.2.108:
+    resolution: {integrity: sha512-7cW8T2gJgI0JX/TiS1gYEPlE/eE5muYCqGlG/8IPva05CmNA2oqrB58H+qp6Fa5eUQ5nP+wrjoYTaJkGyIxuqg==}
 
-  vite@7.1.7:
-    resolution: {integrity: sha512-VbA8ScMvAISJNJVbRDTJdCwqQoAareR/wutevKanhR2/1EkoXVZVkkORaYm/tNVCjP/UDTKtcw3bAkwOUdedmA==}
+  vite@7.1.9:
+    resolution: {integrity: sha512-4nVGliEpxmhCL8DslSAUdxlB6+SMrhB0a1v5ijlh1xB1nEPuy1mxaHxysVucLHuWryAxLWg6a5ei+U4TLn/rFg==}
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
     peerDependencies:
@@ -720,11 +723,11 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.52.3':
     optional: true
 
-  '@types/estree@1.0.8': {}
-
-  acorn-typescript@1.4.13(acorn@8.15.0):
+  '@sveltejs/acorn-typescript@1.0.6(acorn@8.15.0)':
     dependencies:
       acorn: 8.15.0
+
+  '@types/estree@1.0.8': {}
 
   acorn@8.15.0: {}
 
@@ -732,7 +735,7 @@ snapshots:
 
   args-tokenizer@0.3.0: {}
 
-  bumpp@10.2.3:
+  bumpp@10.3.1:
     dependencies:
       ansis: 4.2.0
       args-tokenizer: 0.3.0
@@ -816,6 +819,8 @@ snapshots:
 
   escalade@3.2.0: {}
 
+  esm-env@1.2.2: {}
+
   esrap@2.1.0:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.5
@@ -888,7 +893,7 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
-  prettier-plugin-ripple@0.2.100(prettier@3.6.2):
+  prettier-plugin-ripple@0.2.108(prettier@3.6.2):
     dependencies:
       prettier: 3.6.2
 
@@ -901,12 +906,13 @@ snapshots:
 
   readdirp@4.1.2: {}
 
-  ripple@0.2.100:
+  ripple@0.2.108:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.5
+      '@sveltejs/acorn-typescript': 1.0.6(acorn@8.15.0)
       acorn: 8.15.0
-      acorn-typescript: 1.4.13(acorn@8.15.0)
       clsx: 2.1.1
+      esm-env: 1.2.2
       esrap: 2.1.0
       is-reference: 3.0.3
       magic-string: 0.30.19
@@ -954,9 +960,9 @@ snapshots:
 
   typescript@5.9.3: {}
 
-  vite-plugin-ripple@0.2.100: {}
+  vite-plugin-ripple@0.2.108: {}
 
-  vite@7.1.7(jiti@2.6.1)(yaml@2.8.1):
+  vite@7.1.9(jiti@2.6.1)(yaml@2.8.1):
     dependencies:
       esbuild: 0.25.10
       fdir: 6.5.0(picomatch@4.0.3)

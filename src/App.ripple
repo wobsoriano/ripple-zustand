@@ -1,5 +1,15 @@
 import { effect, track } from 'ripple';
-import { useStore } from './store';
+import { useStore, useTodoStore } from './store';
+
+component TodoItem(props) {
+  const fetchTodo = useTodoStore(state => state.fetch)
+  const todo = useTodoStore(state => state.todo)
+  await fetchTodo(props.id)
+
+  console.log(@todo)
+
+  <li>{@todo.todo}</li>
+}
 
 export component App() {
 	<div class='container'>
@@ -8,9 +18,14 @@ export component App() {
       const bears = useStore(state => state.bears)
       const increaseBears = useStore(state => state.increase)
       const decreaseBears = useStore(state => state.decrease)
+      const { bears: bears2 } = useStore(state => ({ bears: state.bears }))
 
       effect(() => {
         console.log(@bears)
+      })
+
+      effect(() => {
+        console.log('@bears2', @bears2)
       })
 
 			<button onClick={() => decreaseBears()}>{'-'}</button>
@@ -25,6 +40,12 @@ export component App() {
 				{' to get started.'}
 			</p>
 		</div>
+
+    try {
+      <TodoItem id={1} />
+    } pending {
+      <p>{'Loading...'}</p>
+    }
 	</div>
 
   <style>
