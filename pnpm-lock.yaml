@@ -15,11 +15,11 @@ importers:
         specifier: ^3.6.2
         version: 3.6.2
       prettier-plugin-ripple:
-        specifier: ^0.2.109
-        version: 0.2.109(prettier@3.6.2)
+        specifier: ^0.2.112
+        version: 0.2.112(prettier@3.6.2)
       ripple:
-        specifier: ^0.2.109
-        version: 0.2.109
+        specifier: ^0.2.112
+        version: 0.2.112
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
@@ -27,8 +27,8 @@ importers:
         specifier: ^7.1.9
         version: 7.1.9(jiti@2.6.1)(yaml@2.8.1)
       vite-plugin-ripple:
-        specifier: ^0.2.109
-        version: 0.2.109
+        specifier: ^0.2.112
+        version: 0.2.112
       zustand:
         specifier: ^5.0.8
         version: 5.0.8
@@ -365,6 +365,9 @@ packages:
   destr@2.0.5:
     resolution: {integrity: sha512-ugFTXCtDZunbzasqBxrK93Ik/DRYsO6S/fedkWEMKqt04xZ4csmnmwGDBAb07QWNaGMAmnTIemsYZCksjATwsA==}
 
+  devalue@5.3.2:
+    resolution: {integrity: sha512-UDsjUbpQn9kvm68slnrs+mfxwFkIflOhkanmyabZ8zOYk8SMEIbJ3TK+88g70hSIeytu4y18f0z/hYHMTrXIWw==}
+
   dotenv@17.2.3:
     resolution: {integrity: sha512-JVUnt+DUIzu87TABbhPmNfVdBDt18BLOWjMUFJMSi/Qqg7NTYtabbvSNJGOJ7afbRuv9D/lngizHtP7QyLQ+9w==}
     engines: {node: '>=12'}
@@ -460,8 +463,8 @@ packages:
     resolution: {integrity: sha512-3Ybi1tAuwAP9s0r1UQ2J4n5Y0G05bJkpUIO0/bI9MhwmD70S5aTWbXGBwxHrelT+XM1k6dM0pk+SwNkpTRN7Pg==}
     engines: {node: ^10 || ^12 || >=14}
 
-  prettier-plugin-ripple@0.2.109:
-    resolution: {integrity: sha512-fzWfm36SLgQmc/XBZhoRLtV7XYi/jN1qKbGyiOorhpg7l7ddpFlutg9nk55egwOlIiAvizo3PEQkdS8J8hlh3Q==}
+  prettier-plugin-ripple@0.2.112:
+    resolution: {integrity: sha512-ppu2BYsSV0C8v2rSUJxdTZj+jGiH+Yoo6z0JCOnc/P4TlX+NjCLaqPbC17WJTiRakX/jwxmD7ADdAs/Imkz9Ow==}
     peerDependencies:
       prettier: '>=2.0.0'
 
@@ -477,8 +480,8 @@ packages:
     resolution: {integrity: sha512-GDhwkLfywWL2s6vEjyhri+eXmfH6j1L7JE27WhqLeYzoh/A3DBaYGEj2H/HFZCn/kMfim73FXxEJTw06WtxQwg==}
     engines: {node: '>= 14.18.0'}
 
-  ripple@0.2.109:
-    resolution: {integrity: sha512-kxRhe62WW25nmt2dVqDh2x/hMXCSZCNRT3ePEO/KBFcsnNoNti5yCvIhuPS5VWQxek+gkq2oNtTdGo4daaZNqw==}
+  ripple@0.2.112:
+    resolution: {integrity: sha512-1DCcoFuZyuGGgTVeAnYbDPL3FceqdsTnPFTHyBw81xIB8ob2P4/WcoQMVXYBTG6J8PV0wg7gRUobM9+E+rF6OQ==}
 
   rollup@4.52.3:
     resolution: {integrity: sha512-RIDh866U8agLgiIcdpB+COKnlCreHJLfIhWC3LVflku5YHfpnsIKigRZeFfMfCc4dVcqNVfQQ5gO/afOck064A==}
@@ -506,8 +509,8 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  vite-plugin-ripple@0.2.109:
-    resolution: {integrity: sha512-FP6/Vrv6Z9OYPdGkf+84Eo0fbwZH7IwGSevaJySPDWliwtKqxIrVWmY7Vi6rFJvrFq6tRptHb7h3jsz+eoy91g==}
+  vite-plugin-ripple@0.2.112:
+    resolution: {integrity: sha512-qZtVwSLq6oXGcss4cAtU7WXp8IkWCQwAHS3/f5edWwYkeaaBcPiFWoRSYgY/I5fue+ScasmSZhOZY5kbV3pASg==}
 
   vite@7.1.9:
     resolution: {integrity: sha512-4nVGliEpxmhCL8DslSAUdxlB6+SMrhB0a1v5ijlh1xB1nEPuy1mxaHxysVucLHuWryAxLWg6a5ei+U4TLn/rFg==}
@@ -786,6 +789,8 @@ snapshots:
 
   destr@2.0.5: {}
 
+  devalue@5.3.2: {}
+
   dotenv@17.2.3: {}
 
   esbuild@0.25.10:
@@ -893,7 +898,7 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
-  prettier-plugin-ripple@0.2.109(prettier@3.6.2):
+  prettier-plugin-ripple@0.2.112(prettier@3.6.2):
     dependencies:
       prettier: 3.6.2
 
@@ -906,12 +911,13 @@ snapshots:
 
   readdirp@4.1.2: {}
 
-  ripple@0.2.109:
+  ripple@0.2.112:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.5
       '@sveltejs/acorn-typescript': 1.0.6(acorn@8.15.0)
       acorn: 8.15.0
       clsx: 2.1.1
+      devalue: 5.3.2
       esm-env: 1.2.2
       esrap: 2.1.0
       is-reference: 3.0.3
@@ -960,7 +966,7 @@ snapshots:
 
   typescript@5.9.3: {}
 
-  vite-plugin-ripple@0.2.109: {}
+  vite-plugin-ripple@0.2.112: {}
 
   vite@7.1.9(jiti@2.6.1)(yaml@2.8.1):
     dependencies:

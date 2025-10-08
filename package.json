@@ -35,11 +35,11 @@
 	"devDependencies": {
 		"bumpp": "^10.3.1",
 		"prettier": "^3.6.2",
-		"prettier-plugin-ripple": "^0.2.109",
-		"ripple": "^0.2.109",
+		"prettier-plugin-ripple": "^0.2.112",
+		"ripple": "^0.2.112",
 		"typescript": "^5.9.3",
 		"vite": "^7.1.9",
-		"vite-plugin-ripple": "^0.2.109",
+		"vite-plugin-ripple": "^0.2.112",
 		"zustand": "^5.0.8"
 	},
 	"peerDependencies": {
