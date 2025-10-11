@@ -9,4 +9,12 @@ export default defineConfig({
 	build: {
 		target: 'esnext',
 	},
+	resolve: process.env.VITEST ? { conditions: ['browser'] } : undefined,
+  test: {
+		include: ['tests/*.test.ts','tests/*.test.ripple'],
+		deps: {
+			inline: ['ripple'],
+		},
+		environment: 'jsdom'
+  },
 });
