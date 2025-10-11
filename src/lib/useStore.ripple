@@ -16,7 +16,6 @@ export function useStore(api: ReadonlyStoreApi<any>, selector = identity) {
 
 	effect(() => {
 		const unsub = api.subscribe((state) => {
-			console.log('nextvalue', selector(state));
 			@slice = selector(state);
 		});
 
