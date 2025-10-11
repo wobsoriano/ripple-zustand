@@ -8,9 +8,9 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/wobsoriano/jotai-ripple.git"
+		"url": "git+https://github.com/wobsoriano/ripple-zustand.git"
 	},
-	"bugs": "https://github.com/wobsoriano/jotai-ripple/issues",
+	"bugs": "https://github.com/wobsoriano/ripple-zustand/issues",
 	"exports": {
 		".": {
 			"types": "./src/types/index.d.ts",
