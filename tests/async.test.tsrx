@@ -7,20 +7,24 @@ type FetchState = {
 	fetch: () => Promise<void>;
 };
 
-const useFetchStore = create<FetchState>((set) => ({
-	data: null,
-	fetch: async () => {
-		await Promise.resolve();
-		set({ data: 'loaded' });
-	},
-}));
+const useFetchStore = create<FetchState>(
+	(set) => ({
+		data: null,
+		fetch: async () => {
+			await Promise.resolve();
+			set({ data: 'loaded' });
+		},
+	}),
+);
 
-const useErrorStore = create<{ fetch: () => Promise<void> }>(() => ({
-	fetch: async () => {
-		await Promise.resolve();
-		throw new Error('fetch failed');
-	},
-}));
+const useErrorStore = create<{ fetch: () => Promise<void> }>(
+	() => ({
+		fetch: async () => {
+			await Promise.resolve();
+			throw new Error('fetch failed');
+		},
+	}),
+);
 
 component AsyncItem() {
 	const &[data] = trackAsync(async () => {

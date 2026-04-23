@@ -76,15 +76,19 @@ describe('create', () => {
 		});
 
 		it('only re-renders the slice that changed', () => {
-			const useSplitStore = create<{
-				a: number;
-				b: number;
-				incA: () => void;
-			}>((set) => ({
-				a: 0,
-				b: 0,
-				incA: () => set((s) => ({ a: s.a + 1 })),
-			}));
+			const useSplitStore = create<
+				{
+					a: number;
+					b: number;
+					incA: () => void;
+				}
+			>(
+				(set) => ({
+					a: 0,
+					b: 0,
+					incA: () => set((s) => ({ a: s.a + 1 })),
+				}),
+			);
 
 			component SliceA() {
 				const &[a] = useSplitStore((s) => s.a);
