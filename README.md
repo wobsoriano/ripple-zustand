@@ -31,8 +31,8 @@ Use the function anywhere, no providers are needed.
 
 ```tsx
 component BearCounter() {
-    const bears = useBear((state) => state.bears)
-    <h1>{`${@bears} bears around here...`}</h1>
+    const &[bears] = useBear((state) => state.bears)
+    <h1>{`${bears} bears around here...`}</h1>
 }
 
 component Controls() {
@@ -61,6 +61,8 @@ const honey = useStore((state) => state.honey);
 Just call `set` when you're ready, zustand doesn't care if your actions are async or not.
 
 ```ts
+import { trackAsync } from 'ripple';
+
 const useTodoStore = create((set) => ({
   todo: {},
   fetch: async (todoId) => {
@@ -70,19 +72,22 @@ const useTodoStore = create((set) => ({
 }))
 
 export component App() {
-	try {
-		<TodoItem />
-	} pending {
-		<p>{'Loading...'}</p>
-	}
+  try {
+    <TodoItem id={1} />
+  } pending {
+    <p>{'Loading...'}</p>
+  } catch (e) {
+    <p>{'Something went wrong'}</p>
+  }
 }
 
-component TodoItem(props) {
-  const fetchTodo = useTodoStore(state => state.fetch)
-  await fetchTodo(props.id)
-  const todo = useTodoStore(state => state.todo)
+component TodoItem(props: { id: number }) {
+  const &[todo] = trackAsync(async () => {
+    await useTodoStore.getState().fetch(props.id)
+    return useTodoStore.getState().todo
+  })
 
-  <li>{@todo.todo}</li>
+  <li>{todo.title}</li>
 }
 ```
 
